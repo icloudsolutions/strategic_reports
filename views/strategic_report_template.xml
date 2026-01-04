@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="strategic_report_assets" name="Strategic Report Assets">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="stylesheet" href="/strategic_reports/static/src/css/report_style.css"/>
         <script src="/strategic_reports/static/src/js/report_script.js"/>
     </template>
