@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="strategic_report_assets" name="Strategic Report Assets">
+        <link rel="stylesheet" href="/strategic_reports/static/src/css/report_style.css"/>
+        <script src="/strategic_reports/static/src/js/report_script.js"/>
+    </template>
+
+    <template id="strategic_report_template" name="Strategic Report">
+        <t t-call="website.layout">
+            <t t-call="strategic_reports.strategic_report_assets"/>
+            
+            <div id="wrap" class="oe_structure">
+                <section class="strategic-report-section">
+                    <div class="container">
+                        <div class="report-controls">
+                            <button class="btn btn-primary" onclick="showReport('english')">English Version</button>
+                            <button class="btn btn-primary" onclick="showReport('arabic')">النسخة العربية</button>
+                            <button class="btn btn-light" onclick="window.print()">🖨️ Print PDF</button>
+                        </div>
+
+                        <div class="report-container">
+                            
+                            <!-- ARABIC VERSION -->
+                            <div id="arabic-report" class="report-content arabic">
+                                <div class="report-header">
+                                    <div class="logo">
+                                        <img src="/web/image/website/1/logo" alt="شعار مدارس التهذيب"/>
+                                    </div>
+                                    <h1>مراجعة استراتيجية وتوصيات: نظام Odoo ERP</h1>
+                                    <div class="subtitle"><strong>مقدم إلى:</strong> مجلس إدارة مدارس التهذيب</div>
+                                    <div class="author">إعداد: نَبيل الجلاصي – مستشار المشروع</div>
+                                    <div class="subtitle">يناير 2026</div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>1. المقدمة التنفيذية</h2>
+                                    <p>يستعرض هذا التقرير نتائج المعاينة الفنية والمالية الشاملة لنظام Odoo المعتمد حاليًا في مدارس التهذيب. ويؤكد التقرير أن الإشكال القائم <span class="strong-text">لا يقتصر على أخطاء تنفيذ أو تطوير</span>، بل يعود في جزء كبير منه إلى <span class="strong-text">اختيار المنصة التقنية الأساسية</span> وطريقة توظيفها خارج نطاقها الطبيعي.</p>
+                                    
+                                    <div class="highlight-box">
+                                        <p><strong>الهدف الاستراتيجي:</strong></p>
+                                        <p>ليس إصلاح نظام تقني معطوب فحسب، بل <span class="strong-text">إعادة تأسيس بنية رقمية سليمة</span> تضمن:</p>
+                                        <ul>
+                                            <li>سلامة المخرجات المالية</li>
+                                            <li>استقرار العمليات التعليمية</li>
+                                            <li>قابلية التوسع المستقبلي للمجموعة</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>2. تشخيص الوضع الراهن (الحقائق الجوهرية والمخاطر)</h2>
+                                    
+                                    <h3>أولًا: أصل الإشكال – القيود البنيوية لنسخة Odoo Community</h3>
+                                    <div class="warning-box">
+                                        <p>من الضروري التنصيص بوضوح على أن <span class="strong-text">نسخة Odoo Community لا تتضمن أصلًا:</span></p>
+                                        <ul>
+                                            <li>نظام محاسبة مالي معتمد</li>
+                                            <li>نظام أجور (Payroll)</li>
+                                            <li>تقارير مالية رسمية قابلة للاعتماد الإداري أو القانوني</li>
+                                        </ul>
+                                    </div>
+                                    <p>وبالتالي، فإن محاولة بناء نظام مالي متكامل فوق نسخة Community عبر موديولات بديلة أو تطويرات مخصصة لتعويض النقص البنيوي أدت عمليًا إلى <span class="strong-text">ترقيع معماري</span> بدل بناء نظام مؤسسي متكامل، وهو ما يشكّل <span class="strong-text">قلب الإشكال الحالي</span>.</p>
+
+                                    <h3>ثانيًا: الانحراف المالي المحاسبي</h3>
+                                    <ul>
+                                        <li>شجرة الحسابات (Chart of Accounts) غير منسجمة مع الهيكل التنظيمي وطبيعة نشاط المدارس ومتطلبات التوسع المستقبلي</li>
+                                        <li>وجود أرصدة افتتاحية وموازين مراجعة غير واضحة وطرق الإدخال لم تحقق النتائج المرغوبة</li>
+                                        <li><span class="strong-text">لا توجد مرونة في عرض التقارير المالية</span> بالنظام السابق مما يصعب العمليات المحاسبية، حيث أن الجوهر وقلب المنشأة في المحاسبة والأنظمة المحاسبية هي التقارير المالية</li>
+                                        <li>التقارير المالية الناتجة حاليًا <span class="strong-text">غير قابلة للاعتماد في اتخاذ القرار الإداري أو المالي</span></li>
+                                    </ul>
+
+                                    <h3>ثالثًا: التضخم البرمجي المخصص (Customization Overload)</h3>
+                                    <p>الاعتماد المكثف على أكواد مخصصة لتعويض غياب المحاسبة القياسية ومحرك الأجور، خاصة في محركات حساسة مثل: الرسوم، الخصومات، والتسويات المالية.</p>
+                                    <div class="warning-box">
+                                        <p><strong>النتائج السلبية:</strong></p>
+                                        <ul>
+                                            <li>نظام تقني متصلّب</li>
+                                            <li>صعوبة الصيانة</li>
+                                            <li>ارتفاع كلفة الدعم والتطوير</li>
+                                            <li>زيادة مخاطر الأخطاء عند أي تعديل أو توسع</li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>رابعًا: فقدان تجانس البيانات</h3>
+                                    <ul>
+                                        <li>فجوات واضحة في مطابقة البيانات التاريخية (Legacy Data)</li>
+                                        <li>تضارب في أرصدة الطلاب وحسابات الموردين</li>
+                                        <li>غياب مرجعية مالية واحدة يمكن الوثوق بها</li>
+                                    </ul>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>3. التقييم الاستراتيجي للمخاطر</h2>
+                                    <div class="warning-box">
+                                        <p><strong>الاستمرار في المسار الحالي يعني:</strong></p>
+                                        <ol>
+                                            <li><span class="strong-text">إدامة نظام مالي غير مكتمل بنيويًا</span></li>
+                                            <li>استنزاف الموارد في معالجة أعراض المشكلة بدل أصلها</li>
+                                            <li>تعذر بناء تقارير مالية موحدة ودقيقة</li>
+                                            <li>صعوبة أو استحالة دعم نموذج تعدد الفروع أو الشركة الأم والشركات التابعة</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>4. المسار التصحيحي المقترح</h2>
+                                    <h3>(التحول الواعي إلى Odoo Enterprise)</h3>
+                                    <div class="success-box">
+                                        <p>نوصي باعتماد استراتيجية <span class="strong-text">"إعادة التأسيس الذكي"</span> عبر الانتقال إلى نسخة <span class="strong-text">Odoo Enterprise</span>، لكونها النسخة الوحيدة التي توفر:</p>
+                                        <ol>
+                                            <li><span class="strong-text">نظام محاسبة متكامل ومعتمد</span></li>
+                                            <li><span class="strong-text">نظام أجور قياسي وقابل للتدقيق</span></li>
+                                            <li>تقارير مالية دقيقة وموحدة</li>
+                                            <li>دعم فعلي لبنية Multi-Company</li>
+                                            <li>تقليل جذري للاعتماد على البرمجة المخصصة</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>5. خارطة الطريق (6 أشهر نحو الاستقرار الكامل)</h2>
+                                    
+                                    <div class="phase-box">
+                                        <div class="phase-title">المرحلة 1: حجر الزاوية – التأسيس المالي</div>
+                                        <ul>
+                                            <li>اعتماد شجرة الحسابات النهائية</li>
+                                            <li>ترحيل الأرصدة الافتتاحية بدقة</li>
+                                            <li>ضبط محركات الرسوم والخصومات</li>
+                                            <li><span class="strong-text">إيقاف أي معالجة مالية خارج الإطار القياسي</span></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="phase-box">
+                                        <div class="phase-title">المرحلة 2: الاستقرار التشغيلي والمطابقة</div>
+                                        <ul>
+                                            <li>تفعيل الأنظمة الأكاديمية</li>
+                                            <li>مطابقة شاملة مع الأنظمة السابقة</li>
+                                            <li>تصفية الحسابات التاريخية</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="phase-box">
+                                        <div class="phase-title">المرحلة 3: الأتمتة والإغلاق</div>
+                                        <ul>
+                                            <li>تفعيل الأجور</li>
+                                            <li>الربط الحكومي</li>
+                                            <li>محاكاة شاملة</li>
+                                            <li>إقفال سنة 2025 وافتتاح 2026 على نظام سليم</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>6. نموذج الحوكمة المقترح</h2>
+                                    <h4>المستشار المحاسبي:</h4>
+                                    <p>مسؤول حصري عن: المحاسبة، الأجور، الضرائب، والقوائم المالية</p>
+                                    <h4>الإدارة التقنية للمشروع:</h4>
+                                    <p>مسؤولة عن: ضبط جودة التطوير، تقليص التخصيص، وسلامة ترحيل البيانات</p>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>7. الخلاصة والتوصية</h2>
+                                    <div class="highlight-box">
+                                        <p><span class="strong-text">إن جوهر الإشكال لا يكمن في سوء التنفيذ فقط، بل في بناء نظام مالي مؤسسي فوق منصة غير مهيأة لذلك أصلًا.</span></p>
+                                        <p>التحول إلى <span class="strong-text">Odoo Enterprise</span> مع إعادة تنفيذ مدروسة هو القرار الأقل مخاطرة، الأكثر توفيرًا على المدى المتوسط، والوحيد القادر على استعادة الثقة في النظام المالي.</p>
+                                    </div>
+                                    <div class="success-box">
+                                        <p><strong>نوصي مجلس الإدارة بالموافقة على:</strong></p>
+                                        <ol>
+                                            <li>الانتقال الرسمي إلى Odoo Enterprise</li>
+                                            <li>إطلاق المرحلة الأولى فورًا لضمان جاهزية السنة المالية القادمة</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="report-footer">
+                                    <p class="consultant-name">نَبيل الجلاصي</p>
+                                    <p>مستشار المشروع – Odoo ERP</p>
+                                    <p>يناير 2026</p>
+                                </div>
+                            </div>
+
+                            <!-- ENGLISH VERSION -->
+                            <div id="english-report" class="report-content english">
+                                <div class="report-header">
+                                    <div class="logo">
+                                        <img src="/web/image/website/1/logo" alt="Al-Tahtheeb Schools Logo"/>
+                                    </div>
+                                    <h1>Odoo ERP Strategic Review &amp; Recommendations</h1>
+                                    <div class="subtitle"><strong>Submitted to:</strong> Board of Directors - Al-Tahtheeb Schools</div>
+                                    <div class="author">Prepared by: Nabil Al-Jallasi – Project Consultant</div>
+                                    <div class="subtitle">January 2026</div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>1. Executive Summary</h2>
+                                    <p>This report presents the findings of a comprehensive technical and financial assessment of the Odoo system currently implemented at Al-Tahtheeb Schools. The report confirms that the existing issues <span class="strong-text">are not limited to implementation or development errors</span>, but largely stem from <span class="strong-text">the choice of the underlying technical platform</span> and its deployment outside its natural scope.</p>
+                                    
+                                    <div class="highlight-box">
+                                        <p><strong>Strategic Objective:</strong></p>
+                                        <p>Not merely to fix a broken technical system, but to <span class="strong-text">re-establish a sound digital infrastructure</span> that ensures:</p>
+                                        <ul>
+                                            <li>Integrity of financial outputs</li>
+                                            <li>Stability of educational operations</li>
+                                            <li>Future scalability for the organization</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>2. Current Situation Diagnosis (Core Facts and Risks)</h2>
+                                    
+                                    <h3>First: Root of the Problem – Structural Limitations of Odoo Community</h3>
+                                    <div class="warning-box">
+                                        <p>It is critical to clearly state that <span class="strong-text">Odoo Community Edition inherently does NOT include:</span></p>
+                                        <ul>
+                                            <li>Certified financial accounting system</li>
+                                            <li>Payroll system</li>
+                                            <li>Official financial reports suitable for administrative or legal compliance</li>
+                                        </ul>
+                                    </div>
+                                    <p>Consequently, attempting to build an integrated financial system on top of the Community edition through alternative modules or custom developments has effectively resulted in <span class="strong-text">architectural patching</span> rather than building an integrated institutional system, which constitutes <span class="strong-text">the core of the current problem</span>.</p>
+
+                                    <h3>Second: Financial Accounting Deviation</h3>
+                                    <ul>
+                                        <li>Chart of Accounts is misaligned with organizational structure, nature of school operations, and future expansion requirements</li>
+                                        <li>Opening balances and trial balances are unclear, and data entry methods have not achieved desired results</li>
+                                        <li><span class="strong-text">Lack of flexibility in financial reporting</span> in the previous system, which complicates accounting operations, as financial reports are the essence and heart of accounting systems</li>
+                                        <li>Currently generated financial reports are <span class="strong-text">unreliable for administrative or financial decision-making</span></li>
+                                    </ul>
+
+                                    <h3>Third: Customization Overload</h3>
+                                    <p>Heavy reliance on custom code to compensate for the absence of standard accounting and payroll engines, particularly in sensitive modules such as fees, discounts, and financial settlements.</p>
+                                    <div class="warning-box">
+                                        <p><strong>Negative Consequences:</strong></p>
+                                        <ul>
+                                            <li>Rigid technical system</li>
+                                            <li>Maintenance difficulties</li>
+                                            <li>Increased support and development costs</li>
+                                            <li>Higher risk of errors with any modifications or expansions</li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>Fourth: Data Inconsistency</h3>
+                                    <ul>
+                                        <li>Clear gaps in legacy data reconciliation</li>
+                                        <li>Discrepancies in student balances and supplier accounts</li>
+                                        <li>Absence of a single, reliable financial reference</li>
+                                    </ul>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>3. Strategic Risk Assessment</h2>
+                                    <div class="warning-box">
+                                        <p><strong>Continuing on the current path means:</strong></p>
+                                        <ol>
+                                            <li><span class="strong-text">Perpetuating a structurally incomplete financial system</span></li>
+                                            <li>Resource drain addressing symptoms rather than root causes</li>
+                                            <li>Inability to build unified and accurate financial reports</li>
+                                            <li>Difficulty or impossibility of supporting multi-branch or parent-subsidiary company models</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>4. Proposed Corrective Path</h2>
+                                    <h3>(Conscious Transition to Odoo Enterprise)</h3>
+                                    <div class="success-box">
+                                        <p>We recommend adopting a <span class="strong-text">"Smart Re-foundation"</span> strategy through transition to <span class="strong-text">Odoo Enterprise</span>, as it is the only version that provides:</p>
+                                        <ol>
+                                            <li><span class="strong-text">Integrated and certified accounting system</span></li>
+                                            <li><span class="strong-text">Standard and auditable payroll system</span></li>
+                                            <li>Accurate and unified financial reports</li>
+                                            <li>Effective multi-company architecture support</li>
+                                            <li>Radical reduction in dependence on custom programming</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>5. Roadmap (6 Months to Full Stability)</h2>
+                                    
+                                    <div class="phase-box">
+                                        <div class="phase-title">Phase 1: Foundation – Financial Establishment</div>
+                                        <ul>
+                                            <li>Adopt final chart of accounts</li>
+                                            <li>Accurately migrate opening balances</li>
+                                            <li>Configure fee and discount engines</li>
+                                            <li><span class="strong-text">Stop any financial processing outside standard framework</span></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="phase-box">
+                                        <div class="phase-title">Phase 2: Operational Stability and Reconciliation</div>
+                                        <ul>
+                                            <li>Activate academic systems</li>
+                                            <li>Comprehensive reconciliation with legacy systems</li>
+                                            <li>Clear historical accounts</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="phase-box">
+                                        <div class="phase-title">Phase 3: Automation and Closure</div>
+                                        <ul>
+                                            <li>Activate payroll</li>
+                                            <li>Government integration</li>
+                                            <li>Comprehensive simulation</li>
+                                            <li>Close fiscal year 2025 and open 2026 on a sound system</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>6. Proposed Governance Model</h2>
+                                    <h4>Accounting Consultant:</h4>
+                                    <p>Exclusively responsible for: Accounting, Payroll, Taxes, and Financial Statements</p>
+                                    <h4>Technical Project Management:</h4>
+                                    <p>Responsible for: Development quality control, Customization reduction, and Data migration integrity</p>
+                                </div>
+
+                                <div class="report-section">
+                                    <h2>7. Conclusion and Recommendation</h2>
+                                    <div class="highlight-box">
+                                        <p><span class="strong-text">The essence of the problem lies not only in poor execution, but in building an institutional financial system on a platform fundamentally unprepared for it.</span></p>
+                                        <p>The transition to <span class="strong-text">Odoo Enterprise</span> with thoughtful re-implementation is the least risky decision, the most cost-effective in the medium term, and the only option capable of restoring confidence in the financial system.</p>
+                                    </div>
+                                    <div class="success-box">
+                                        <p><strong>We recommend the Board of Directors approve:</strong></p>
+                                        <ol>
+                                            <li>Official transition to Odoo Enterprise</li>
+                                            <li>Immediate launch of Phase 1 to ensure readiness for the upcoming fiscal year</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="report-footer">
+                                    <p class="consultant-name">Nabil Al-Jallasi</p>
+                                    <p>Project Consultant – Odoo ERP</p>
+                                    <p>January 2026</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

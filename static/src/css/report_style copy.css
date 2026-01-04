@@ -1,0 +1,68 @@
+/* Strategic Report Styles */
+
+.report-content {
+    line-height: 1.8;
+}
+
+.report-content.arabic {
+    font-family: 'Arial', 'Tahoma', sans-serif;
+}
+
+.report-content.english {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.report-content h1,
+.report-content h2,
+.report-content h3,
+.report-content h4 {
+    font-weight: 700;
+}
+
+.report-content ul,
+.report-content ol {
+    line-height: 1.8;
+}
+
+.report-content li {
+    margin: 10px 0;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white !important;
+    }
+    
+    .controls {
+        display: none !important;
+    }
+    
+    .report-container {
+        box-shadow: none !important;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+    
+    #wrapwrap > header,
+    #wrapwrap > footer {
+        display: none !important;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .report-content {
+        padding: 30px 20px !important;
+    }
+    
+    .header h1 {
+        font-size: 24px !important;
+    }
+    
+    .section h2 {
+        font-size: 20px !important;
+    }
+}
