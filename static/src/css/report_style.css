@@ -236,12 +236,6 @@
     @page {
         size: A4;
         margin: 20mm 15mm 25mm 15mm;
-
-        @bottom-right {
-            content: "Page " counter(page);
-            font-size: 10pt;
-            color: #4a5568;
-        }
     }
 
     * {
@@ -290,6 +284,7 @@
     .report-content {
         padding: 0 !important;
         color: #000 !important;
+        position: relative;
     }
 
     .report-content:not(.active) {
@@ -300,6 +295,24 @@
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+    }
+
+    .page-number-print {
+        display: block !important;
+        font-size: 10pt;
+        color: #4a5568;
+    }
+
+    .page-number-print::after {
+        content: counter(page);
+    }
+
+    .report-content.arabic .page-number-print::before {
+        content: "صفحة ";
+    }
+
+    .report-content:not(.arabic) .page-number-print::before {
+        content: "Page ";
     }
 
     .report-section {
@@ -344,6 +357,10 @@
     .report-footer {
         page-break-inside: avoid;
     }
+}
+
+.page-number-print {
+    display: none;
 }
 
 /* Mobile Responsive */
