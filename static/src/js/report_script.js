@@ -3,13 +3,13 @@
 function showReport(language) {
     const arabicReport = document.getElementById('arabic-report');
     const englishReport = document.getElementById('english-report');
-    
+
     if (language === 'arabic') {
-        arabicReport.style.display = 'block';
-        englishReport.style.display = 'none';
+        arabicReport.classList.add('active');
+        englishReport.classList.remove('active');
     } else {
-        englishReport.style.display = 'block';
-        arabicReport.style.display = 'none';
+        englishReport.classList.add('active');
+        arabicReport.classList.remove('active');
     }
 }
 

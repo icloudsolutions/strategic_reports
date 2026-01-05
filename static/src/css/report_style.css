@@ -243,12 +243,16 @@
         print-color-adjust: exact !important;
     }
 
-    body {
+    html, body {
         background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     #wrapwrap > header,
-    #wrapwrap > footer {
+    #wrapwrap > footer,
+    .o_header_standard,
+    nav {
         display: none !important;
     }
 
@@ -256,30 +260,44 @@
         background: white !important;
         padding: 0 !important;
         min-height: auto !important;
+        display: block !important;
     }
 
     .report-controls {
         display: none !important;
     }
 
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
     .report-container {
         box-shadow: none !important;
         border-radius: 0 !important;
         background: white !important;
+        display: block !important;
     }
 
     .report-content {
-        padding: 15mm 10mm !important;
-        display: block !important;
-        position: relative;
+        padding: 0 !important;
+        color: #000 !important;
+    }
+
+    .report-content:not(.active) {
+        display: none !important;
     }
 
     .report-content.active {
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .report-content::after {
-        content: counter(page);
+        content: "Page " counter(page);
         position: fixed;
         bottom: 10mm;
         right: 15mm;
@@ -290,17 +308,28 @@
     .report-content.arabic::after {
         right: auto;
         left: 15mm;
+        content: "صفحة " counter(page);
     }
 
     .report-section {
         page-break-inside: avoid;
         break-inside: avoid;
-        margin: 20px 0;
+        margin: 15px 0;
     }
 
     .report-header {
         page-break-after: avoid;
         margin-bottom: 30px;
+        border-bottom: 3px solid #667eea !important;
+    }
+
+    .report-header h1,
+    .report-section h2,
+    .report-section h3,
+    .report-section h4,
+    .report-section p,
+    .report-section li {
+        color: inherit !important;
     }
 
     .highlight-box,
@@ -309,6 +338,7 @@
     .phase-box {
         page-break-inside: avoid;
         break-inside: avoid;
+        border: 1px solid #e2e8f0 !important;
     }
 
     h2, h3, h4 {
@@ -318,6 +348,10 @@
 
     .report-header .logo img {
         max-height: 80px;
+    }
+
+    .report-footer {
+        page-break-inside: avoid;
     }
 }
 
