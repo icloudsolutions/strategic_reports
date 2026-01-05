@@ -236,6 +236,12 @@
     @page {
         size: A4;
         margin: 20mm 15mm 25mm 15mm;
+
+        @bottom-right {
+            content: "Page " counter(page);
+            font-size: 10pt;
+            color: #4a5568;
+        }
     }
 
     * {
@@ -294,21 +300,6 @@
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-    }
-
-    .report-content::after {
-        content: "Page " counter(page);
-        position: fixed;
-        bottom: 10mm;
-        right: 15mm;
-        font-size: 10pt;
-        color: #718096;
-    }
-
-    .report-content.arabic::after {
-        right: auto;
-        left: 15mm;
-        content: "صفحة " counter(page);
     }
 
     .report-section {
